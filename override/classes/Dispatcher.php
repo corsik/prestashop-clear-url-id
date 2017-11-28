@@ -16,6 +16,25 @@ class Dispatcher extends DispatcherCore
                 'meta_title' =>        array('regexp' => '[_a-zA-Z0-9-\pL]*'),
             ),
         ),
+        'product_rule' => array(
+            'controller' =>    'product',
+            'rule' =>        '{category:/}{-:id_product_attribute}{rewrite}{-:ean13}.html',
+            'keywords' => array(
+                'id' =>            array('regexp' => '[0-9]+'),
+                'id_product_attribute' => array('regexp' => '[0-9]+', 'param' => 'id_product_attribute'),
+                'rewrite' =>        array('regexp' => '([_a-zA-Z0-9\pL\pS-]){2,}', 'param' => 'rewrite_product'),
+                'ean13' =>        array('regexp' => '[0-9\pL]*'),
+                'category' =>        array('regexp' => '([_a-zA-Z0-9-\pL]){2,}'),
+                'categories' =>        array('regexp' => '[/_a-zA-Z0-9-\pL]*'),
+                'reference' =>        array('regexp' => '[_a-zA-Z0-9-\pL]*'),
+                'meta_keywords' =>    array('regexp' => '[_a-zA-Z0-9-\pL]*'),
+                'meta_title' =>        array('regexp' => '[_a-zA-Z0-9-\pL]*'),
+                'manufacturer' =>    array('regexp' => '[_a-zA-Z0-9-\pL]*'),
+                'supplier' =>        array('regexp' => '[_a-zA-Z0-9-\pL]*'),
+                'price' =>            array('regexp' => '[0-9\.,]*'),
+                'tags' =>            array('regexp' => '[a-zA-Z0-9-\pL]*'),
+            ),
+        ),
         'category_rule' => array(
             'controller' =>    'category',
             'rule' =>        '{rewrite}',
@@ -77,25 +96,7 @@ class Dispatcher extends DispatcherCore
                 'fc' => 'module',
             ),
         ),
-        'product_rule' => array(
-            'controller' =>    'product',
-            'rule' =>        '{category:/}{-:id_product_attribute}{rewrite}{-:ean13}.html',
-            'keywords' => array(
-                'id' =>            array('regexp' => '[0-9]+'),
-                'id_product_attribute' => array('regexp' => '[0-9]+', 'param' => 'id_product_attribute'),
-                'rewrite' =>        array('regexp' => '([_a-zA-Z0-9\pL\pS-]){2,}', 'param' => 'rewrite_product'),
-                'ean13' =>        array('regexp' => '[0-9\pL]*'),
-                'category' =>        array('regexp' => '([_a-zA-Z0-9-\pL]){2,}'),
-                'categories' =>        array('regexp' => '[/_a-zA-Z0-9-\pL]*'),
-                'reference' =>        array('regexp' => '[_a-zA-Z0-9-\pL]*'),
-                'meta_keywords' =>    array('regexp' => '[_a-zA-Z0-9-\pL]*'),
-                'meta_title' =>        array('regexp' => '[_a-zA-Z0-9-\pL]*'),
-                'manufacturer' =>    array('regexp' => '[_a-zA-Z0-9-\pL]*'),
-                'supplier' =>        array('regexp' => '[_a-zA-Z0-9-\pL]*'),
-                'price' =>            array('regexp' => '[0-9\.,]*'),
-                'tags' =>            array('regexp' => '[a-zA-Z0-9-\pL]*'),
-            ),
-        ),
+
     );
 
     public function prepRoutes($routes = []) {
@@ -158,7 +159,6 @@ class Dispatcher extends DispatcherCore
 
                 if (isset($routes)) {
                     foreach ($routes as $route) {
-
                         if (preg_match($route['regexp'], $uri, $m)) {
                             // Route found ! Now fill $_GET with parameters of uri
                             foreach ($m as $k => $v) {
