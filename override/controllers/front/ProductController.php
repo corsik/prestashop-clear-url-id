@@ -1,7 +1,11 @@
 <?php
-
 class ProductController extends ProductControllerCore
 {
+    /*
+    * module: crk_urls_clear
+    * date: 2017-11-27 23:11:34
+    * version: 0.0.2
+    */
     public function init()
     {
         if ($productRewrite = Tools::getValue('rewrite_product')) {
@@ -17,7 +21,11 @@ class ProductController extends ProductControllerCore
         }
         parent::init();
     }
-
+    /*
+    * module: crk_urls_clear
+    * date: 2017-11-27 23:11:34
+    * version: 0.0.2
+    */
     public function getProductId ($productRewrite)
     {
         $langId = (int) Context::getContext()->language->id;
@@ -27,7 +35,6 @@ class ProductController extends ProductControllerCore
         if (Shop::isFeatureActive() && Shop::getContext() == Shop::CONTEXT_SHOP) {
             $sql .= ' AND `id_shop` = '.(int) Shop::getContextShopID();
         }
-
         return (int) Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue($sql);
     }
 }
