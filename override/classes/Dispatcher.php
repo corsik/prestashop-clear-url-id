@@ -8,10 +8,10 @@ class Dispatcher extends DispatcherCore
             'controller' =>    'category',
             'rule' =>        '{id}-{rewrite}{/:selected_filters}',
             'keywords' => array(
-                'id' =>            array('regexp' => '[0-9]+', 'param' => 'id_category'),
+                'id' =>            array('regexp' => '[0-9]+'),
                 /* Selected filters is used by the module blocklayered */
                 'selected_filters' =>    array('regexp' => '.*', 'param' => 'selected_filters'),
-                'rewrite' =>        array('regexp' => '[_a-zA-Z0-9\pL\pS-]*'),
+                'rewrite' =>        array('regexp' => '([_a-zA-Z0-9\pL\pS-]){2,}', 'param' => 'rewrite_category'),
                 'meta_keywords' =>    array('regexp' => '[_a-zA-Z0-9-\pL]*'),
                 'meta_title' =>        array('regexp' => '[_a-zA-Z0-9-\pL]*'),
             ),
@@ -37,9 +37,9 @@ class Dispatcher extends DispatcherCore
         ),
         'category_rule' => array(
             'controller' =>    'category',
-            'rule' =>        '{rewrite}',
+            'rule' =>        '{id}-{rewrite}',
             'keywords' => array(
-                'id' =>            array('regexp' => '[0-9]+', 'param' => 'id_category'),
+                'id' =>            array('regexp' => '[0-9]+'),
                 'rewrite' =>        array('regexp' => '([_a-zA-Z0-9\pL\pS-]){2,}', 'param' => 'rewrite_category'),
                 'meta_keywords' =>    array('regexp' => '[_a-zA-Z0-9-\pL]*'),
                 'meta_title' =>        array('regexp' => '[_a-zA-Z0-9-\pL]*'),
@@ -59,8 +59,8 @@ class Dispatcher extends DispatcherCore
             'controller' =>    'manufacturer',
             'rule' =>        '{id}_{rewrite}',
             'keywords' => array(
-                'id' =>            array('regexp' => '[0-9]+', 'param' => 'id_manufacturer'),
-                'rewrite' =>        array('regexp' => '[_a-zA-Z0-9\pL\pS-]*'),
+                'id' =>            array('regexp' => '[0-9]+'),
+                'rewrite' =>        array('regexp' => '[_a-zA-Z0-9\pL\pS-]*', 'param' => 'rewrite_manufacturer'),
                 'meta_keywords' =>    array('regexp' => '[_a-zA-Z0-9-\pL]*'),
                 'meta_title' =>        array('regexp' => '[_a-zA-Z0-9-\pL]*'),
             ),
