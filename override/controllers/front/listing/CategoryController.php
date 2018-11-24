@@ -6,10 +6,14 @@ class CategoryController extends CategoryControllerCore
     * date: 2017-11-27 23:11:33
     * version: 0.0.2
     */
+    /*
+    * module: crk_urls_clear
+    * date: 2018-06-14 16:09:19
+    * version: 0.0.2
+    */
     public function init()
     {
         if ($categoryRewrite = Tools::getValue('rewrite_category')) {
-
             $idCategory = $this->getCategorytId ($categoryRewrite);
             if ($idCategory > 0) {
                 $_GET['id_category'] = $idCategory;
@@ -22,10 +26,14 @@ class CategoryController extends CategoryControllerCore
         }
         parent::init();
     }
-
     /*
     * module: crk_urls_clear
     * date: 2017-11-27 23:11:34
+    * version: 0.0.2
+    */
+    /*
+    * module: crk_urls_clear
+    * date: 2018-06-14 16:09:19
     * version: 0.0.2
     */
     public function getCategorytId ($categoryRewrite)
