@@ -17,4 +17,4 @@
 
 Проверенно для приведённых выше видов ссылок.
 
-[![ko-fi](https://az743702.vo.msecnd.net/cdn/kofi2.png?v=0)](https://ko-fi.com/F1F8RXPF)
+[![ko-fi](https://az743702.vo.msecnd.net/cdn/kofi2.png?v=0)](https://www.paypal.me/corsik/3)
