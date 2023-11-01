@@ -16,5 +16,3 @@
 ```
 
 Проверенно для приведённых выше видов ссылок.
-
-[![ko-fi](https://corsik.ru/coffe.png)](https://www.paypal.me/corsik/3)
